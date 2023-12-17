@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ReviewFlashcardActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#1450A3"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="@drawable/baseline_arrow_back_24"
+            android:backgroundTint="#F4AAAA"
+            android:text="&#60;"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/txtFolderName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Kaban"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/flashcardFragment"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_weight="8"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:id="@+id/btnChooseFav"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:layout_marginVertical="20dp"
+            android:tag="0"
+            android:background="@drawable/baseline_star_outline_24"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtWord"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="wrap_content"
+                android:text="鞄"
+                android:textSize="100dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="3">
+
+                <TextView
+                    android:id="@+id/txtFurigana"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:text="かばん"/>
+
+                <TextView
+                    android:id="@+id/txtRomaji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:text="kaban"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:background="@drawable/n5"
+                android:layout_height="50dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Hello \nLove"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btnPrev"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#1450A3"
+        android:text="&#60;"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline1"
+        app:layout_constraintVertical_bias="0.555"></Button>
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#1450A3"
+        android:text="&#62;"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline1"
+        app:layout_constraintVertical_bias="0.555"></Button>
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".WelcomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#1450A3"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="2">
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:paddingHorizontal="20dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:text="Search at JLPT Mastermind"/>
+
+
+    </LinearLayout>
+    <ImageButton
+        android:background="@drawable/baseline_settings_suggest_24"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/frame_icon"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:text="My favorite"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnFFav"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#B3144FA3"
+            android:text="@string/my_favorite"
+            android:layout_height="70dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/frame_icon"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:text="My folders"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnFN5"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#B3144FA3"
+            android:text="@string/n5"/>
+
+        <Button
+            android:id="@+id/btnFN4"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#B3144FA3"
+            android:text="@string/n4"/>
+
+        <Button
+            android:id="@+id/btnFN3"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#B3144FA3"
+            android:text="@string/n3"/>
+
+        <Button
+            android:id="@+id/btnFN2"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#B3144FA3"
+            android:text="@string/n2"/>
+
+        <Button
+            android:id="@+id/btnFN1"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#B3144FA3"
+            android:text="@string/n1"/>
+
+
+    </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>

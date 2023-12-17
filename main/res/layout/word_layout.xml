@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:background="#1450A3">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:background="@drawable/baseline_arrow_back_24"
+            android:backgroundTint="#F4AAAA"
+            android:contentDescription="@string/app_name"
+            android:textSize="30sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/txtSearch"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:text="Hello"
+            android:gravity="center_vertical"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/btnChooseFav"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/fav_yellow"
+        android:layout_gravity="right"
+        android:tag="0"
+        android:background="@drawable/baseline_star_outline_24"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="鞄"
+            android:textSize="100sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline6"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtFurigana"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="かばん"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/txtRomaji"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="romaji"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgLevel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/n5"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtMeaning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:text="Bag \nPurse"/>
+
+</LinearLayout>

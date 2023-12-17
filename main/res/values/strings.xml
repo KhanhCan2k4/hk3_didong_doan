@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Mastermind</string>
+    <string name="my_favorite">My favorite</string>
+    <string name="n5">N5 - Basic</string>
+    <string name="n4">N4 - Pre-Intermidiate</string>
+    <string name="n3">N3 - Intermidiate</string>
+    <string name="n2">N2 - Pre-Advanced</string>
+    <string name="n1">N1 - Advanced</string>
+</resources>
