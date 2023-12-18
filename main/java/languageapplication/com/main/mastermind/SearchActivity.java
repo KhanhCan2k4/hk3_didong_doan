@@ -11,12 +11,10 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import languageapplication.com.main.mastermind.dao.WordDAO;
+import languageapplication.com.main.mastermind.dao.WordDAO_;
 import languageapplication.com.main.mastermind.database.Database;
 import languageapplication.com.main.mastermind.databinding.SearchLayoutBinding;
 import languageapplication.com.main.mastermind.models.Word;
@@ -64,7 +62,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence enteredKey, int i, int i1, int i2) {
-                words = WordDAO.getWordsByKey(enteredKey.toString());
+                words = WordDAO_.getWordsByKey(enteredKey.toString());
 
                 Log.d("TAG", "onTextChanged: " + words.size());
 
@@ -83,7 +81,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
                 String enteredKey = searchLayoutBinding.edtSearch.getText().toString();
-                int id = WordDAO.getIdByKey(enteredKey);
+                int id = WordDAO_.getIdByKey(enteredKey);
 
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
 

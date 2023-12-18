@@ -8,12 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
-import java.util.ArrayList;
-
-import languageapplication.com.main.mastermind.dao.FolderDAO;
-import languageapplication.com.main.mastermind.database.Database;
+import languageapplication.com.main.mastermind.dao.FolderDAO_;
 import languageapplication.com.main.mastermind.databinding.ViewFolderLayoutBinding;
-import languageapplication.com.main.mastermind.models.Favourite;
 import languageapplication.com.main.mastermind.models.Folder;
 import languageapplication.com.main.mastermind.models.Word;
 
@@ -33,10 +29,10 @@ public class ViewFolderActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int id = intent.getIntExtra("id", 0);
 
-        Folder folder = FolderDAO.getFolderById(id);
+        Folder folder = FolderDAO_.getFolderById(id);
 
         viewFolderLayoutBinding.txtFolderName.setText(folder.getName());
-        folder.setWords(FolderDAO.getWordsByFolderId(folder.getId()));
+        folder.setWords(FolderDAO_.getWordsByFolderId(folder.getId()));
 
         wordArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, folder.getWords());
         viewFolderLayoutBinding.lvFolders.setAdapter(wordArrayAdapter);

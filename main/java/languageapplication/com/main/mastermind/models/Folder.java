@@ -1,10 +1,26 @@
 package languageapplication.com.main.mastermind.models;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import java.util.ArrayList;
 
+@Entity(tableName = Folder.NAME_TABLE)
 public class Folder {
+    @Ignore
+    public final static String NAME_TABLE = "favourites";
+    @Ignore
+    public final static String ID = "word_id";
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = ID)
     private int id;
+
+    @Ignore
     private String name;
+    @Ignore
     private ArrayList<Word> words;
 
     public int getId() {

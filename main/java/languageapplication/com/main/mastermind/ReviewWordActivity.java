@@ -6,8 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import languageapplication.com.main.mastermind.dao.FolderDAO;
-import languageapplication.com.main.mastermind.dao.WordDAO;
+import languageapplication.com.main.mastermind.dao.FolderDAO_;
 import languageapplication.com.main.mastermind.databinding.ReviewWordLayoutBinding;
 import languageapplication.com.main.mastermind.models.Folder;
 import languageapplication.com.main.mastermind.models.Word;
@@ -25,12 +24,12 @@ public class ReviewWordActivity extends AppCompatActivity {
         setContentView(reviewWordLayoutBinding.getRoot());
 
         Intent intent = getIntent();
-        folder = FolderDAO.getFolderById(intent.getIntExtra("id", -1));
+        folder = FolderDAO_.getFolderById(intent.getIntExtra("id", -1));
         index = intent.getIntExtra("index", 0);
 
         updateWord();
 
-        if(FolderDAO.containsWordWithId(0, folder.getWords().get(index).getId())) {
+        if(FolderDAO_.containsWordWithId(0, folder.getWords().get(index).getId())) {
             reviewWordLayoutBinding.btnChooseFav.setImageResource(R.drawable.baseline_star_24);
             reviewWordLayoutBinding.btnChooseFav.setTag("1");
         }
@@ -46,9 +45,9 @@ public class ReviewWordActivity extends AppCompatActivity {
 
                 //lưu lại trạng thái lưu từ vựng yêu thích
                 if (reviewWordLayoutBinding.btnChooseFav.getTag().equals("1")) {
-                    FolderDAO.getFolderById(0).setWords(folder.getWords().get(index));
+                    FolderDAO_.getFolderById(0).setWords(folder.getWords().get(index));
                 } else {
-                    FolderDAO.getFolderById(0).getWords().remove(folder.getWords().get(index));
+                    FolderDAO_.getFolderById(0).getWords().remove(folder.getWords().get(index));
                 }
 
                 startActivity(intent);

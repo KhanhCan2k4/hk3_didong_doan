@@ -10,9 +10,8 @@ import android.util.Log;
 import android.view.View;
 
 import languageapplication.com.main.mastermind.config.Constains;
-import languageapplication.com.main.mastermind.dao.FolderDAO;
-import languageapplication.com.main.mastermind.dao.WordDAO;
-import languageapplication.com.main.mastermind.database.Database;
+import languageapplication.com.main.mastermind.dao.FolderDAO_;
+import languageapplication.com.main.mastermind.dao.WordDAO_;
 import languageapplication.com.main.mastermind.databinding.FalseLayoutBinding;
 import languageapplication.com.main.mastermind.databinding.WordLayoutBinding;
 import languageapplication.com.main.mastermind.models.Word;
@@ -30,7 +29,7 @@ public class WordActivity extends AppCompatActivity {
 
         String key = intent.getStringExtra("key");
         int id = intent.getIntExtra("id", -1);
-        Word word = WordDAO.getWordById(id);
+        Word word = WordDAO_.getWordById(id);
 
         if(id == -1) {
             falseLayoutBinding = FalseLayoutBinding.inflate(getLayoutInflater());
@@ -55,7 +54,7 @@ public class WordActivity extends AppCompatActivity {
 
             Log.d("TAG", "onCreate: folders size" + Constains.getFolders().size());
 
-            if(FolderDAO.containsWordWithId(0, id)) {
+            if(FolderDAO_.containsWordWithId(0, id)) {
                 wordLayoutBinding.btnChooseFav.setImageResource(R.drawable.baseline_star_24);
                 wordLayoutBinding.btnChooseFav.setTag("1");
             }
@@ -105,7 +104,7 @@ public class WordActivity extends AppCompatActivity {
 
                     //lưu lại trạng thái lưu từ vựng yêu thích
                     if (wordLayoutBinding.btnChooseFav.getTag().equals("1")) {
-                        FolderDAO.getFolderById(0).setWords(word);
+                        FolderDAO_.getFolderById(0).setWords(word);
                     }
 
                     startActivity(intent);

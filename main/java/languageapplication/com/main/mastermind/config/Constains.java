@@ -1,11 +1,7 @@
 package languageapplication.com.main.mastermind.config;
 
-import android.app.Activity;
-
 import java.util.ArrayList;
 
-import languageapplication.com.main.mastermind.R;
-import languageapplication.com.main.mastermind.dao.FolderDAO;
 import languageapplication.com.main.mastermind.models.Folder;
 
 public class Constains {

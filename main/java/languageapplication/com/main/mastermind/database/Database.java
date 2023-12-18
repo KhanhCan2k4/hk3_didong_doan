@@ -3,7 +3,7 @@ package languageapplication.com.main.mastermind.database;
 import java.util.ArrayList;
 
 import languageapplication.com.main.mastermind.config.Constains;
-import languageapplication.com.main.mastermind.dao.WordDAO;
+import languageapplication.com.main.mastermind.dao.WordDAO_;
 import languageapplication.com.main.mastermind.models.Favourite;
 import languageapplication.com.main.mastermind.models.Folder;
 import languageapplication.com.main.mastermind.models.Word;
@@ -69,7 +69,7 @@ public class Database {
         if (favourites != null) {
             //get from database
             for (Favourite favourite: favourites) {
-                Word word = WordDAO.getWordById(favourite.getWordId());
+                Word word = WordDAO_.getWordById(favourite.getWordId());
                 favouriteWords.add(word);
             }
         }
