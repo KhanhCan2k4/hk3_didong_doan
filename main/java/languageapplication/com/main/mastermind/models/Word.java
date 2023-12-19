@@ -1,13 +1,13 @@
 package languageapplication.com.main.mastermind.models;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import languageapplication.com.main.mastermind.config.Constains;
 
-public class Word implements Serializable {
+public class Word {
     private int id;
     private String word;
+    private String meaning;
     private ArrayList<String> meanings;
     private String furigana;
     private String romaji;
@@ -27,6 +27,14 @@ public class Word implements Serializable {
 
     public void setWord(String word) {
         this.word = word;
+    }
+
+    public String getMeaning() {
+        return meaning;
+    }
+
+    public void setMeaning(String meaning) {
+        this.meaning = meaning;
     }
 
     public ArrayList<String> getMeanings() {
@@ -89,6 +97,15 @@ public class Word implements Serializable {
         this.furigana = "";
         this.romaji = "";
         this.level = 0;
+    }
+
+    public void setWord(Word word) {
+        this.id = word.id;
+        this.word = word.word;
+        this.meaning = word.meaning;
+        this.furigana = word.furigana;
+        this.romaji = word.romaji;
+        this.level = word.level;
     }
 
     public String toString() {

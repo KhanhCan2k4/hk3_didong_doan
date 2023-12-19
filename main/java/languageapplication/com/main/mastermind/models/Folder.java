@@ -1,8 +1,15 @@
 package languageapplication.com.main.mastermind.models;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import java.util.ArrayList;
 
 public class Folder {
+    public final static String NAME_TABLE = "favourites";
+    public final static String ID = "word_id";
+
     private int id;
     private String name;
     private ArrayList<Word> words;
@@ -28,7 +35,8 @@ public class Folder {
     }
 
     public void setWords(ArrayList<Word> words) {
-        this.words = words;
+        this.words = new ArrayList<>();
+        this.words.addAll(words);
     }
 
     public void setWords(Word... words) {

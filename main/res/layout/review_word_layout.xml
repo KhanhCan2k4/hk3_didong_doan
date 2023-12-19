@@ -94,6 +94,7 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/imgLevel"
                 android:layout_width="50dp"
                 android:background="@drawable/n5"
                 android:layout_height="50dp"/>
@@ -101,6 +102,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/txtMeaning"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"

@@ -21,13 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
         mainLayoutBinding = MainLayoutBinding.inflate(getLayoutInflater());
         setContentView(mainLayoutBinding.getRoot());
-
-        mainLayoutBinding.btnFFav.findViewById(R.id.btnFFav);
-        mainLayoutBinding.btnFN1.findViewById(R.id.btnFN1);
-        mainLayoutBinding.btnFN2.findViewById(R.id.btnFN2);
-        mainLayoutBinding.btnFN3.findViewById(R.id.btnFN3);
-        mainLayoutBinding.btnFN4.findViewById(R.id.btnFN4);
-        mainLayoutBinding.btnFN5.findViewById(R.id.btnFN5);
     }
 
     @Override

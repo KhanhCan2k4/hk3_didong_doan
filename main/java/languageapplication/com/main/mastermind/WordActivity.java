@@ -10,9 +10,7 @@ import android.util.Log;
 import android.view.View;
 
 import languageapplication.com.main.mastermind.config.Constains;
-import languageapplication.com.main.mastermind.dao.FolderDAO;
-import languageapplication.com.main.mastermind.dao.WordDAO;
-import languageapplication.com.main.mastermind.database.Database;
+import languageapplication.com.main.mastermind.database.DatabaseManager;
 import languageapplication.com.main.mastermind.databinding.FalseLayoutBinding;
 import languageapplication.com.main.mastermind.databinding.WordLayoutBinding;
 import languageapplication.com.main.mastermind.models.Word;
@@ -26,13 +24,15 @@ public class WordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        DatabaseManager manager = new DatabaseManager(this);
+        manager.open();
         Intent intent = getIntent();
 
         String key = intent.getStringExtra("key");
-        int id = intent.getIntExtra("id", -1);
-        Word word = WordDAO.getWordById(id);
+        int id = intent.getIntExtra("id", 0);
+        Word word = manager.getWordById(id);
 
-        if(id == -1) {
+        if(id == 0) {
             falseLayoutBinding = FalseLayoutBinding.inflate(getLayoutInflater());
             setContentView(falseLayoutBinding.getRoot());
 
@@ -55,7 +55,7 @@ public class WordActivity extends AppCompatActivity {
 
             Log.d("TAG", "onCreate: folders size" + Constains.getFolders().size());
 
-            if(FolderDAO.containsWordWithId(0, id)) {
+            if(manager.isFavourite(id)) {
                 wordLayoutBinding.btnChooseFav.setImageResource(R.drawable.baseline_star_24);
                 wordLayoutBinding.btnChooseFav.setTag("1");
             }
@@ -66,9 +66,14 @@ public class WordActivity extends AppCompatActivity {
                     if (wordLayoutBinding.btnChooseFav.getTag().equals("0")) {
                         wordLayoutBinding.btnChooseFav.setImageResource(R.drawable.baseline_star_24);
                         wordLayoutBinding.btnChooseFav.setTag("1");
+
+                        manager.setFavourite(word.getId());
+
                     } else {
                         wordLayoutBinding.btnChooseFav.setImageResource(R.drawable.baseline_star_outline_24);
                         wordLayoutBinding.btnChooseFav.setTag("0");
+
+                        manager.deleteFavourite(word.getId());
                     }
                 }
             });
@@ -95,18 +100,13 @@ public class WordActivity extends AppCompatActivity {
                     break;
             }
 
-            wordLayoutBinding.txtMeaning.setText(word.getMeaningsString());
+            wordLayoutBinding.txtMeaning.setText(word.getMeaning());
 
             wordLayoutBinding.btnBack.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(WordActivity.this, SearchActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-
-                    //lưu lại trạng thái lưu từ vựng yêu thích
-                    if (wordLayoutBinding.btnChooseFav.getTag().equals("1")) {
-                        FolderDAO.getFolderById(0).setWords(word);
-                    }
 
                     startActivity(intent);
                 }

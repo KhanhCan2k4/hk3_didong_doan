@@ -11,13 +11,10 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import languageapplication.com.main.mastermind.dao.WordDAO;
-import languageapplication.com.main.mastermind.database.Database;
+import languageapplication.com.main.mastermind.database.DatabaseManager;
 import languageapplication.com.main.mastermind.databinding.SearchLayoutBinding;
 import languageapplication.com.main.mastermind.models.Word;
 
@@ -26,10 +23,8 @@ public class SearchActivity extends AppCompatActivity {
     private SearchLayoutBinding searchLayoutBinding;
     private ArrayAdapter<Word> wordArrayAdapter;
     private ArrayList<Word> words;
+    private DatabaseManager manager;
 
-    private static class Temp {
-        public static boolean isEntered;
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +32,10 @@ public class SearchActivity extends AppCompatActivity {
         searchLayoutBinding = SearchLayoutBinding.inflate(getLayoutInflater());
         setContentView(searchLayoutBinding.getRoot());
 
-        words = Database.getWords();
+        manager = new DatabaseManager(this);
+        manager.open();
+
+        words = manager.getWordsByFolderId(5);
 
         wordArrayAdapter = new ArrayAdapter<Word>(this, android.R.layout.simple_list_item_1, words);
         searchLayoutBinding.lvSearchWords.setAdapter(wordArrayAdapter);
@@ -64,9 +62,8 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence enteredKey, int i, int i1, int i2) {
-                words = WordDAO.getWordsByKey(enteredKey.toString());
 
-                Log.d("TAG", "onTextChanged: " + words.size());
+                words = manager.getWordsByKey(enteredKey.toString());
 
                 wordArrayAdapter = new ArrayAdapter<>(SearchActivity.this, android.R.layout.simple_list_item_1, words);
                 searchLayoutBinding.lvSearchWords.setAdapter(wordArrayAdapter);
@@ -83,7 +80,11 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
                 String enteredKey = searchLayoutBinding.edtSearch.getText().toString();
-                int id = WordDAO.getIdByKey(enteredKey);
+                Log.d("TAG", "onKey: "+enteredKey);
+                int id = 0;
+                if(words.size() > 0){
+                    id = words.get(0).getId();
+                }
 
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
 
@@ -91,8 +92,6 @@ public class SearchActivity extends AppCompatActivity {
 
                     intent.putExtra("key", enteredKey);
                     intent.putExtra("id", id);
-
-                    Log.d("TAG", "onKey: enter");
 
                     startActivity(intent);
 
